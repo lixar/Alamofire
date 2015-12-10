@@ -30,7 +30,7 @@ import Foundation
     - Failure: The request encountered an error resulting in a failure. The associated values are the original data 
                provided by the server as well as the error that caused the failure.
 */
-public enum Result<Value, Error: ErrorType> {
+public enum RESTResult<Value, Error: ErrorType> {
     case Success(Value)
     case Failure(Error)
 
@@ -72,7 +72,7 @@ public enum Result<Value, Error: ErrorType> {
 
 // MARK: - CustomStringConvertible
 
-extension Result: CustomStringConvertible {
+extension RESTResult: CustomStringConvertible {
     /// The textual representation used when written to an output stream, which includes whether the result was a 
     /// success or failure.
     public var description: String {
@@ -87,7 +87,7 @@ extension Result: CustomStringConvertible {
 
 // MARK: - CustomDebugStringConvertible
 
-extension Result: CustomDebugStringConvertible {
+extension RESTResult: CustomDebugStringConvertible {
     /// The debug textual representation used when written to an output stream, which includes whether the result was a
     /// success or failure in addition to the value or error.
     public var debugDescription: String {
